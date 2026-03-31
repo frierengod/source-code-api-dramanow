@@ -1,6 +1,6 @@
 <?php
 /**
- * Contoh Script Bridge API Dramanova via StreamAPI.web.id
+ * Contoh Script Bridge API Dramanow via StreamAPI.web.id
  * ----------------------------------------------------
  * Wajib punya Token dulu dari: https://streamapi.web.id/register
  * Token dikirim lewat http header "api-token".
@@ -9,8 +9,8 @@
 // 1. Taruh API Token StreamAPI Web ID kamu di sini
 $API_TOKEN = 'TOKEN_API_KAMU_DISINI';
 
-// Fungsi bantuan buat manggil endpoint Dramanova di sistem Bridge
-function callDramanovaAPI($urlTujuan, $token) {
+// Fungsi bantuan buat manggil endpoint Dramanow di sistem Bridge
+function callDramanowAPI($urlTujuan, $token) {
     if ($token === 'TOKEN_API_KAMU_DISINI') {
         die("❌ Error Bro: Masukin Token StreamAPI kamu dulu di baris ke-10!\n");
     }
@@ -45,15 +45,15 @@ function callDramanovaAPI($urlTujuan, $token) {
 // -----------------------------------------------------------------
 // UJI COBA KODE
 // -----------------------------------------------------------------
-$baseUrl = "https://streamapi.web.id/p/dramanova/api/v1";
+$baseUrl = "https://streamapi.web.id/p/dramanow/api/v1";
 
-// Contoh 1: Fitur Cari Film Dramanova
-echo "\n=====================[ 1. Pencarian Dramanova ]==================\n";
+// Contoh 1: Fitur Cari Film Dramanow
+echo "\n=====================[ 1. Pencarian Dramanow ]==================\n";
 $kataKunci = urlencode("cinta");
 $halaman = 1;
 $urlCari = "{$baseUrl}/search/{$kataKunci}/{$halaman}?lang=in";
 
-$hasilCari = callDramanovaAPI($urlCari, $API_TOKEN);
+$hasilCari = callDramanowAPI($urlCari, $API_TOKEN);
 if ($hasilCari) {
     echo "✅ Sukses nemu drama dengan kata kunci 'cinta'\n";
     // echo print_r($hasilCari, true); // Hapus comment ini kalau mau leeat output raw-nya
@@ -65,7 +65,7 @@ echo "\n=====================[ 2. Metadata Drama ]======================\n";
 $bookIdFilm = "42000000722";
 $urlDetail = "{$baseUrl}/detail/{$bookIdFilm}";
 
-$hasilDetail = callDramanovaAPI($urlDetail, $API_TOKEN);
+$hasilDetail = callDramanowAPI($urlDetail, $API_TOKEN);
 if ($hasilDetail) {
     echo "✅ Berhasil ambil metadata untuk film ID {$bookIdFilm}!\n";
 }
@@ -75,7 +75,7 @@ echo "\n=====================[ 3. Link Nonton Episode ]=================\n";
 $episodeId = "1";
 $urlNonton = "{$baseUrl}/watch/{$bookIdFilm}/{$episodeId}?lang=in";
 
-$hasilNonton = callDramanovaAPI($urlNonton, $API_TOKEN);
+$hasilNonton = callDramanowAPI($urlNonton, $API_TOKEN);
 if ($hasilNonton) {
     echo "✅ Sukses manggil endpoint 'watch' (nonton)!\n";
     // Data sukses, tinggal bongkar struktur JSON nya buat ambil Link Video / Subtitlenya
@@ -83,6 +83,6 @@ if ($hasilNonton) {
 
 echo "\n================================================================\n";
 echo "Mau liat lebih banyak route/endpoint yang tersedia?\nKunjungi Dokumentasi Interaktif Kami:\n";
-echo "▶▶▶ https://streamapi.web.id/docs/dramanova ◀◀◀\n\n";
+echo "▶▶▶ https://streamapi.web.id/docs/dramanow ◀◀◀\n\n";
 
 ?>

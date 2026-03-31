@@ -1,8 +1,8 @@
-# Dramanova API Wrapper (PHP) 🎬
+# Dramanow API Wrapper (PHP) 🎬
 
-Script PHP sederhana, super cepat, dan stabil untuk integrasi ke **API Aplikasi Dramanova**. Sekarang kamu bisa memanggil data film pendek, daftar episode, ranking, dan pencarian video langsung dari aplikasi atau website PHP kamu tanpa ribet!
+Script PHP sederhana, super cepat, dan stabil untuk integrasi ke **API Aplikasi Dramanow**. Sekarang kamu bisa memanggil data film pendek, daftar episode, ranking, dan pencarian video langsung dari aplikasi atau website PHP kamu tanpa ribet!
 
-Repository ini adalah contoh cara menyambungkan aplikasimu ke API Dramanova dengan menggunakan layanan dari [**StreamAPI**](https://streamapi.web.id), sang *Bridge API* andalan khusus buat platform video streaming.
+Repository ini adalah contoh cara menyambungkan aplikasimu ke API Dramanow dengan menggunakan layanan dari [**StreamAPI**](https://streamapi.web.id), sang *Bridge API* andalan khusus buat platform video streaming.
 
 ---
 
@@ -10,7 +10,7 @@ Repository ini adalah contoh cara menyambungkan aplikasimu ke API Dramanova deng
 
 - **Kecepatan Ngebut**: StreamAPI menggunakan sistem proxy yang dioptimasi agar respon server tidak delay.
 - **Selalu Online**: Gak perlu takut API mati. Tersedia mekanisme anti-lelet dan endpoint stabil.
-- **Integrasi Gampang Banget**: Lupakan auth token yang ribet dan enkripsi aneh-aneh dari Dramanova. Tinggal panggil URL REST API aja bareng Token kamu.
+- **Integrasi Gampang Banget**: Lupakan auth token yang ribet dan enkripsi aneh-aneh dari Dramanow. Tinggal panggil URL REST API aja bareng Token kamu.
 - **Endpoint Lengkap**: Mulai dari data *For You*, *Rilisan Terbaru*, *Ranking Populer*, *Kategori*, sampai metadata *Detail Nonton* semuanya ready.
 
 ## 🚀 Cara Mulai Instalasi
@@ -25,24 +25,24 @@ Agar bisa menggunakan bridge StreamAPI, kamu wajib punya **API Token** pribadi. 
 Download atau *clone* repository ini, lalu tes langsung script contohnya (`example.php`) di server lokal kamu.
 
 ```bash
-git clone https://github.com/username-kamu/dramanova-api-php.git
-cd dramanova-api-php
+git clone https://github.com/username-kamu/dramanow-api-php.git
+cd dramanow-api-php
 php example.php
 ```
 
-## 📖 Daftar Endpoint (Dramanova)
+## 📖 Daftar Endpoint (Dramanow)
 
 Berikut adalah beberapa endpoint favorit yang sudah di-mapping oleh StreamAPI:
 
 | **Method** | **Struktur Endpoint** | **Kegunaan** |
 |:---:|---|---|
-| GET | `/p/dramanova/api/v1/foryou/{page}` | Ambil data drama *For You* yang lagi tren |
-| GET | `/p/dramanova/api/v1/new/{page}` | Tarik kumpulan list drama baru rilis |
-| GET | `/p/dramanova/api/v1/search/{keyword}/{page}` | Fitur pencarian judul & artis global |
-| GET | `/p/dramanova/api/v1/detail/{bookId}` | Lihat metadata, sinopsis, & cover drama |
-| GET | `/p/dramanova/api/v1/watch/{bookId}/{chapterId}` | Dapetin URL video/trailer/episode spesifik |
+| GET | `/p/dramanow/api/v1/foryou/{page}` | Ambil data drama *For You* yang lagi tren |
+| GET | `/p/dramanow/api/v1/new/{page}` | Tarik kumpulan list drama baru rilis |
+| GET | `/p/dramanow/api/v1/search/{keyword}/{page}` | Fitur pencarian judul & artis global |
+| GET | `/p/dramanow/api/v1/detail/{bookId}` | Lihat metadata, sinopsis, & cover drama |
+| GET | `/p/dramanow/api/v1/watch/{bookId}/{chapterId}` | Dapetin URL video/trailer/episode spesifik |
 
-Ingin coba langsung di browser tanpa koding? Mampir aja ke fitur **[Sandbox Interaktif Dramanova](https://streamapi.web.id/docs/dramanova)** kami.
+Ingin coba langsung di browser tanpa koding? Mampir aja ke fitur **[Sandbox Interaktif Dramanow](https://streamapi.web.id/docs/dramanow)** kami.
 
 ---
 
@@ -56,7 +56,7 @@ $token = "TOKEN_STREAMAPI_KAMU_DISINI";
 $bookId = "42000000722";
 $chapterId = "1";
 
-$url = "https://streamapi.web.id/p/dramanova/api/v1/watch/{$bookId}/{$chapterId}";
+$url = "https://streamapi.web.id/p/dramanow/api/v1/watch/{$bookId}/{$chapterId}";
 
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -68,7 +68,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, [
 $response = curl_exec($ch);
 curl_close($ch);
 
-echo "Respons Data dari API Dramanova:\n" . $response;
+echo "Respons Data dari API Dramanow:\n" . $response;
 ?>
 ```
 
